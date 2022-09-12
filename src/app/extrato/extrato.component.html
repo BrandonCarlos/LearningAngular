@@ -1,2 +1,5 @@
-<p>Valor: {{ transferencia?.valor }}</p><!-- transferencia? <-- se tiver alguma coisa dentro de "transferencia" pega pra mim -->
-<p>Destino: {{ transferencia?.destino }}</p>
+<div *ngFor="let transferencia of transferencias">
+  <p>Data: {{ transferencia?.data }}</p><!-- transferencia? <-- se tiver alguma coisa dentro de "transferencia" pega pra mim -->
+  <p>Valor: {{ transferencia?.valor }}</p><!-- transferencia? <-- se tiver alguma coisa dentro de "transferencia" pega pra mim -->
+  <p>Destino: {{ transferencia?.destino }}</p>
+</div>

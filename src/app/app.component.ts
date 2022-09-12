@@ -7,10 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bytebank';
-  transferencia: any;
+  transferencias: any[] = [];//inicializando vázio
 
   transferir($event) {
     console.log($event);//ta mostrando = {valor = 432, destino = 1312}
-    this.transferencia = $event; //ou seja to mandando p/ o app.component.html o objeto com os atributos "valor e destino"
+    const transferencia = { ...$event, data: new Date() };
+    this.transferencias.push(transferencia); //ou seja to mandando p/ o app.component.html o objeto com os atributos "valor e destino"
   }
 }
