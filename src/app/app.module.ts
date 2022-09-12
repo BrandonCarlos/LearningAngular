@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';//Aqui temos os modules para podermos u
 
 import { AppComponent } from './app.component';
 import { NovaTransferenciaComponent } from './nova transferencia/nova-transferencia.component';
-import { FormsModule } from '@angular/forms';//pegamos lá do site do angular
+import { FormsModule } from '@angular/forms';
+import { ExtratoComponent } from './extrato/extrato.component';//pegamos lá do site do angular
 
 @NgModule({
   declarations: [
     AppComponent,
-    NovaTransferenciaComponent
+    NovaTransferenciaComponent,
+    ExtratoComponent
   ],
   imports: [
     BrowserModule,
