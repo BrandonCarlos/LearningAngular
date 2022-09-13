@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TransferenciaService } from '../services/transferencia.service';
 
 @Component({
   selector: 'app-extrato',
@@ -6,12 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./extrato.component.scss']
 })
 export class ExtratoComponent implements OnInit {
-  //Esse atributo(array) = transferencias <- está vindo do arquivo app.component.ts
-  @Input() transferencias: any[];//Ou seja ta recebendo a propriedade "transferencias" que é um ARRAY junto com o "valor e destino" e ta recebendo any, que pode ser qualquer coisa, inclusive objeto
+  transferencias: any[];
 
-  constructor() { }
+  constructor(private service: TransferenciaService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.transferencias = this.service.transferencias;
   }
 
 }
