@@ -10,7 +10,7 @@ export class NovaTransferenciaComponent {//Aqui que vai ter nossas lógicas e no
   //que podem ser acessadas fora desta classe em outro arquivo
 
   //mandar estes dados para quem o invocou, tirar esses dados para fora enviar para quem chamou
-  @Output()
+  @Output()//aqui dentro do "aoTransferir" tem os dados "valor e destino" poderá ser usado no componente que usar o @Input -> pra receber estes dados
   aoTransferir: EventEmitter<any> = new EventEmitter<any>(); //esse evento "aoTransferir" vai poder receber qualquer tipo de dados, objeto, number etc..
 
   valor: number;
@@ -19,7 +19,7 @@ export class NovaTransferenciaComponent {//Aqui que vai ter nossas lógicas e no
   transferir() {
     console.log('Solciitado nova transferencia');
     const valorEmitir = { valor: this.valor, destino: this.destino };
-    this.aoTransferir.emit(valorEmitir);//após emitir os dados, abaixo vamos limpar os campos
+    this.aoTransferir.emit(valorEmitir);//ou seja quando eu der submit no form, vou propagar estes dados(valor, destino) pra quem usar @Input
     this.limparCampos();
   }
 
