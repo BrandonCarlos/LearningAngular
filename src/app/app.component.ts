@@ -13,7 +13,8 @@ export class AppComponent {
 
   }
 
-  transferir($event) {//propaga os dados e envia para o service
+  //este componente principal já não tem responsabilidade de fazer lógica, para isso temos o service
+  transferir($event) {//Recebemos o evento e propagamos para o service
     this.service.adicionar($event);
 
   }
