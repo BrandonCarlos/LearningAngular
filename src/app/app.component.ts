@@ -8,7 +8,6 @@ import { TransferenciaService } from './services/transferencia.service';
 })
 export class AppComponent {
   title = 'bytebank';
-  transferencias: any[] = [];//inicializando vázio
 
   constructor(private service: TransferenciaService) {//fazendo a injeção de dependência(instanciando a classe TransferenciaService)
 

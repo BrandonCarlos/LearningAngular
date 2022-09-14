@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root' //Aqui diz que este service faz parte de toda a aplicação, ou seja posso fazer injeção de dependência em todo o projeto
 })
 export class TransferenciaService {
-  private listaTransferencia: any[];
+  private listaTransferencia: any[];//Lá no app.component.ts tinhamos este array vázio, agora é aqui que fazemos isso
 
 constructor() {
   this.listaTransferencia = [];

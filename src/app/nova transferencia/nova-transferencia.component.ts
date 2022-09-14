@@ -17,7 +17,7 @@ export class NovaTransferenciaComponent {//Aqui que vai ter nossas lógicas e no
   destino: number;
 
   transferir() {
-    console.log('Solciitado nova transferencia');
+    console.log('Solicitado nova transferencia');
     const valorEmitir = { valor: this.valor, destino: this.destino };
     this.aoTransferir.emit(valorEmitir);//ou seja quando eu der submit no form, vou propagar estes dados(valor, destino) pra quem usar @Input
     this.limparCampos();
