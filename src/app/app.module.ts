@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';//Aqui temos os modules para podermos usar em toda nossa aplicação
 
@@ -18,7 +19,8 @@ registerLocaleData(localePt, 'pt');//descrevendo que vou utilizar no idioma pt
   ],
   imports: [
     BrowserModule,
-    FormsModule//pegamos do site do angular
+    FormsModule,//pegamos do site do angular
+    HttpClientModule//Este módulo possui o "HttpClient" <- que importamos lá no arquivo "transferencia.service.ts"
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt' },
