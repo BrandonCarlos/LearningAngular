@@ -9,13 +9,6 @@ import { TransferenciaService } from './services/transferencia.service';
 export class AppComponent {
   title = 'bytebank';
 
-  constructor(private service: TransferenciaService) {//fazendo a injeção de dependência(instanciando a classe TransferenciaService)
+  constructor(private service: TransferenciaService) {}
 
-  }
-
-  //este componente principal já não tem responsabilidade de fazer lógica, para isso temos o service
-  transferir($event) {//Recebemos o evento e propagamos para o service
-    this.service.adicionar($event);
-
-  }
 }

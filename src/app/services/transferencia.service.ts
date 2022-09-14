@@ -24,9 +24,10 @@ todas() : Observable<Transferencia[]> {//Observable é assyncrono então em algu
   return this.httpClient.get<Transferencia[]>(this.url);//o que vai voltar desse GET vai ser uma "lista de transferencias(interface)"
 }
 
-adicionar(transferencia: any) {
+//Este será o método POST
+adicionar(transferencia: Transferencia): Observable<Transferencia> {//fazer o POST somente com os dados que forem enviados do tipo do modelo -> Transferencia
   this.hidratar(transferencia);
-  this.listaTransferencia.push(transferencia); //ou seja to mandando p/ o app.component.html o objeto com os atributos "valor e destino e data"
+  return this.httpClient.post<Transferencia>(this.url, transferencia)
 }
 
 private hidratar(transferencia: any) {

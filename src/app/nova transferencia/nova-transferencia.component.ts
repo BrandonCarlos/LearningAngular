@@ -1,4 +1,6 @@
+import { Transferencia } from './../models/transferencia.model';
 import { Component, Output,EventEmitter } from "@angular/core";
+import { TransferenciaService } from "../services/transferencia.service";
 
 @Component({//Está é minha classe, e é aqui que vou colocar os métodos de click, submit, etc...
     selector: 'app-nova-transferencia',
@@ -16,11 +18,17 @@ export class NovaTransferenciaComponent {//Aqui que vai ter nossas lógicas e no
   valor: number;
   destino: number;
 
+  constructor(private service: TransferenciaService){}
+
   transferir() {
     console.log('Solicitado nova transferencia');
-    const valorEmitir = { valor: this.valor, destino: this.destino };
-    this.aoTransferir.emit(valorEmitir);//ou seja quando eu der submit no form, vou propagar estes dados(valor, destino) pra quem usar @Input
-    this.limparCampos();
+    const valorEmitir: Transferencia = { valor: this.valor, destino: this.destino };//estamos tipando o objeto para que siga um modelo
+    this.service.adicionar(valorEmitir).subscribe(resultado => {
+      console.log(resultado);
+      this.limparCampos();//se retornar resultado é pq o método POST deu certo, e ai fará a limpeza de campos
+    },
+    (error) => console.error(error)
+    );
   }
 
   limparCampos() {
