@@ -12,7 +12,8 @@ export class ExtratoComponent implements OnInit {
 
   constructor(private service: TransferenciaService) { }//injetando o service(criando instância do service)
 
-  ngOnInit() {
+  //Aqui dentro dos TS dos componentes e que chamamos os "métodos dos SERVICES"
+  ngOnInit() {//ngOnInit() vai ativar na hora assim que abrirmos o programa
     this.service.todas().subscribe((transferencias: Transferencia[]) => { //estou me inscrevendo na resposta desse método Observable
       console.table(transferencias);
       this.transferencias = transferencias;//array transferencias recebendo transferencias do parâmetro que chega do GET que fizemos

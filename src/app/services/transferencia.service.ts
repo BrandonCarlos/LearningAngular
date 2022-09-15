@@ -26,11 +26,11 @@ todas() : Observable<Transferencia[]> {//Observable é assyncrono então em algu
 
 //Este será o método POST
 adicionar(transferencia: Transferencia): Observable<Transferencia> {//fazer o POST somente com os dados que forem enviados do tipo do modelo -> Transferencia
-  this.hidratar(transferencia);
+  this.hidratar(transferencia);//aqui já adicionou a data, formato de data mesmo
   return this.httpClient.post<Transferencia>(this.url, transferencia)
 }
 
-private hidratar(transferencia: any) {
+private hidratar(transferencia: any) {//não tipei por que data não é do tipo String e sim tipo Data mesmo e ia dar conflito
   transferencia.data = new Date();//Date foi criado na hora
 }
 

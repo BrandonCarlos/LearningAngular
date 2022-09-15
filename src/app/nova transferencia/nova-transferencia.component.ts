@@ -8,21 +8,16 @@ import { TransferenciaService } from "../services/transferencia.service";
     styleUrls: ['./nova-transferencia.component.scss']
 })
 
-export class NovaTransferenciaComponent {//Aqui que vai ter nossas lógicas e nossos métodos, como está CLASS é export, então temos váriaveis
-  //que podem ser acessadas fora desta classe em outro arquivo
-
-  //mandar estes dados para quem o invocou, tirar esses dados para fora enviar para quem chamou
-  @Output()//aqui dentro do "aoTransferir" tem os dados "valor e destino" poderá ser usado no componente que usar o @Input -> pra receber estes dados
-  aoTransferir: EventEmitter<any> = new EventEmitter<any>(); //esse evento "aoTransferir" vai poder receber qualquer tipo de dados, objeto, number etc..
-
+export class NovaTransferenciaComponent {
   valor: number;
   destino: number;
 
   constructor(private service: TransferenciaService){}
 
+  //método aqui no nova-transferencia para fazer o POST
   transferir() {
     console.log('Solicitado nova transferencia');
-    const valorEmitir: Transferencia = { valor: this.valor, destino: this.destino };//estamos tipando o objeto para que siga um modelo
+    const valorEmitir: Transferencia = { valor: this.valor, destino: this.destino };//estamos tipando o objeto para que siga o modelo transferencia
     this.service.adicionar(valorEmitir).subscribe(resultado => {
       console.log(resultado);
       this.limparCampos();//se retornar resultado é pq o método POST deu certo, e ai fará a limpeza de campos

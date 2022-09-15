@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { ExtratoComponent } from './extrato/extrato.component';//pegamos lá do site do angular
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { AppRoutingModule } from './app.routing.module';
 
 registerLocaleData(localePt, 'pt');//descrevendo que vou utilizar no idioma pt
 
@@ -20,7 +21,8 @@ registerLocaleData(localePt, 'pt');//descrevendo que vou utilizar no idioma pt
   imports: [
     BrowserModule,
     FormsModule,//pegamos do site do angular
-    HttpClientModule//Este módulo possui o "HttpClient" <- que importamos lá no arquivo "transferencia.service.ts"
+    HttpClientModule,//Este módulo possui o "HttpClient" <- que importamos lá no arquivo "transferencia.service.ts"
+    AppRoutingModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt' },
