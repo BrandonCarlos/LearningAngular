@@ -1,6 +1,7 @@
 import { Transferencia } from './../models/transferencia.model';
 import { Component, Output,EventEmitter } from "@angular/core";
 import { TransferenciaService } from "../services/transferencia.service";
+import { Router } from '@angular/router';
 
 @Component({//Está é minha classe, e é aqui que vou colocar os métodos de click, submit, etc...
     selector: 'app-nova-transferencia',
@@ -12,7 +13,7 @@ export class NovaTransferenciaComponent {
   valor: number;
   destino: number;
 
-  constructor(private service: TransferenciaService){}
+  constructor(private service: TransferenciaService, private router: Router){}
 
   //método aqui no nova-transferencia para fazer o POST
   transferir() {
@@ -21,6 +22,7 @@ export class NovaTransferenciaComponent {
     this.service.adicionar(valorEmitir).subscribe(resultado => {
       console.log(resultado);
       this.limparCampos();//se retornar resultado é pq o método POST deu certo, e ai fará a limpeza de campos
+      this.router.navigateByUrl('extrato');//assim que fazer o POST redirecionar para a url de 'extrato'
     },
     (error) => console.error(error)
     );

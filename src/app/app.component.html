@@ -1,1 +1,7 @@
-<router-outlet></router-outlet>
+<header>
+  <a routerLink="extrato">Extrato</a><!--routerLink serve para não renderizar toda a página e sim só a parte necessária, o que deixa a aplicação muita rápida-->
+  <a routerLink="nova-transferencia" routerLinkActive="ativo">Nova Transferência</a><!--routerLinkActive = quando essa rota estiver ativa, ai vai pegar esse atributo "ativo" css -->
+</header>
+<main>
+  <router-outlet></router-outlet><!--Está tag é para renderizar o conteudo de páginas aqui dentro, ex: extrato, nova-transferencia etc..-->
+</main>
